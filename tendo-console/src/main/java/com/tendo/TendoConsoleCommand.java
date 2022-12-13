@@ -54,7 +54,8 @@ public class TendoConsoleCommand implements Runnable {
                 }
             }
 
-            System.out.println("Thanks again/! Here’s what we heard:");
+            System.out.println("Thanks again. Here’s what we heard:");
+            System.out.println("*******************************************");
 
             for (FeedbackAnswerResource answerResource : feedbackAnswerResources) {
                 System.out.println(answerResource.getQuestionPrompt());
