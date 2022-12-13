@@ -1,15 +1,8 @@
-## Tend Feedback Service
-This service is for recording answers for patient's feedback.
----
+## Tend Feedback App
+This repo consist of two pojects: tendo-console and tendo-feedback-web
 
-## How to run
-- Install java 11 and latest stable version of gradle
-- Run commands: ./gradlew run
 
-## Improvements
-- Security
-- Logging/Monitoring
-- Separating Resource classes to a separate project
-- Getting rid of hardcoded data
+## Design
+Following is the high level design of how the app is interacting with the service.
 
-![alt text](\TendoFeedBackApp.png)
+![alt text](TendoFeedBackApp.png)
