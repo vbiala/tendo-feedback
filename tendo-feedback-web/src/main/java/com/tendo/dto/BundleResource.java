@@ -10,8 +10,8 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Data
-public class Bundle {
-    public Bundle() {
+public class BundleResource {
+    public BundleResource() {
 
     }
     private UUID id;

@@ -59,5 +59,8 @@ class FeedbackServiceImplTest {
         List<FeedbackAnswer> answers = feedbackService.getFeedbackAnswersForBundle(bundleId);
 
         assertEquals(3, answers.size());
+        assertEquals("1", answers.get(0).getAnswer());
+        assertEquals("Yes", answers.get(1).getAnswer());
+        assertEquals("Sad", answers.get(2).getAnswer());
     }
 }
