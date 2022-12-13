@@ -1,6 +1,6 @@
 package com.tendo.service;
 
-import com.tendo.dto.Bundle;
+import com.tendo.dto.BundleResource;
 import com.tendo.entity.FeedbackAnswer;
 import com.tendo.entity.FeedbackQuestion;
 import com.tendo.repository.FeedbackAnswerRepository;
@@ -37,7 +37,7 @@ public class FeedbackServiceImpl implements FeedbackService{
         }
 
 
-        Optional<Bundle> bundle = externalService.getBundle(bundleId);
+        Optional<BundleResource> bundle = externalService.getBundle(bundleId);
         if (bundle.isPresent()) {
             replaceQuestionsTags(questions, bundle.get());
         }
@@ -60,20 +60,20 @@ public class FeedbackServiceImpl implements FeedbackService{
         return feedbackAnswerRepository.findByBundleId(bundleId);
     }
 
-    private void replaceQuestionsTags(List<FeedbackQuestion> questions, Bundle bundle) {
+    private void replaceQuestionsTags(List<FeedbackQuestion> questions, BundleResource bundleResource) {
         for (FeedbackQuestion question : questions) {
 
-            bundle.getPatient().ifPresent(patient -> {
+            bundleResource.getPatient().ifPresent(patient -> {
                 question.setQuestion_prompt(question.getQuestion_prompt().replace("[Patient]",
                         patient.getName()));
             });
 
-            bundle.getDoctor().ifPresent(doctor -> {
+            bundleResource.getDoctor().ifPresent(doctor -> {
                 question.setQuestion_prompt(question.getQuestion_prompt().replace("[Doctor]",
                         doctor.getName()));
             });
 
-            bundle.getDiagnosis().ifPresent(diagnosis -> {
+            bundleResource.getDiagnosis().ifPresent(diagnosis -> {
                 question.setQuestion_prompt(question.getQuestion_prompt().replace("[Diagnosis]",
                         diagnosis.getCode()));
             });

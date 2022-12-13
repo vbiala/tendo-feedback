@@ -3,7 +3,7 @@ package com.tendo.service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.tendo.common.FileUtils;
-import com.tendo.dto.Bundle;
+import com.tendo.dto.BundleResource;
 import jakarta.inject.Singleton;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,11 +25,11 @@ public class ExternalServiceImpl implements ExternalService{
         objectMapper.registerModule(new JavaTimeModule());
     }
 
-    public Optional<Bundle> getBundle(UUID uuid) {
+    public Optional<BundleResource> getBundle(UUID uuid) {
         try {
             InputStream is = FileUtils.getFileFromResourceAsStream(BUNDLE_FILE_NAME);
-            Bundle bundle = objectMapper.readValue(is, Bundle.class);
-            return Optional.of(bundle);
+            BundleResource bundleResource = objectMapper.readValue(is, BundleResource.class);
+            return Optional.of(bundleResource);
         } catch (IOException e) {
             LOGGER.error(e.getMessage());
             return Optional.empty();

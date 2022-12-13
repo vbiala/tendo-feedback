@@ -1,11 +1,11 @@
 package com.tendo.service;
 
-import com.tendo.dto.Bundle;
+import com.tendo.dto.BundleResource;
 
 import java.util.Optional;
 import java.util.UUID;
 
 public interface ExternalService {
 
-    Optional<Bundle> getBundle(UUID uuid);
+    Optional<BundleResource> getBundle(UUID uuid);
 }
