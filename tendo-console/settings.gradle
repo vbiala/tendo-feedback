@@ -1,0 +1,4 @@
+
+rootProject.name="tendo-console"
+include ':tendo-feedback-web'
+project(':tendo-feedback-web').projectDir = new File('../tendo-feedback-web')
